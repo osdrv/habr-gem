@@ -44,7 +44,6 @@ module Habr
 
     def initialize(data)
       FIELDS.each do |f|
-        # instance_variable_set(f, data[f]) if !data[f].nil?
         send("#{f.to_s}=".to_sym, data[f]) if !data[f].nil?
       end
     end
@@ -53,7 +52,7 @@ module Habr
 
       def find_by_name(name)
         begin
-          data = Habr::Loader.load_user_data
+          data = Habr::Loader.load_user_data name
           Habr::User.new(data)
         rescue => e
           nil
