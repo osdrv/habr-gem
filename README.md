@@ -9,6 +9,7 @@ Usage:
 ------
 
     require 'rubygems'
+    require 'habr'
 
     user = Habr::User.find_by_name('4pcbr')
     puts user.login # output login: '4pcbr'
